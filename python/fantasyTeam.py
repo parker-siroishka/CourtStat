@@ -4,6 +4,7 @@ from hashedData import teams,kills,errors,assists,aces,digs,blocksSolo,blocksAss
 possibleStats = [kills,errors,assists,aces,digs,blocksSolo,blocksAss]
 possibleStatsStrings = ["kills","errors","assists","aces","digs","blocksSolo","blocksAss"]
 roster = []
+rosterTotalPoints = 0
 
 
 def player(fantasyPlayer):
@@ -22,7 +23,12 @@ temp = []
 while len(temp) < 8:
 	fantasyPlayer = input("Pick your 8 player roster: ")
 	temp.append(player(fantasyPlayer))
-	#for i in range(8):
-	#	print(temp[i][0]+calcPoints())
 
+#for i in range(8):
+#	for team in teams:
+#		for player in teams:
+#			if temp[i][0] == player:
+#				print(temp[i][0] + " " + str(calcPoints(team,temp[i][0])))
+#				rosterTotalPoints += calcPoints(albertaRoster,temp[i][0])
+#print("Total Team Points: " + rosterTotalPoints)
 print(temp)
