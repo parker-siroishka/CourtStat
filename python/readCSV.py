@@ -1,5 +1,8 @@
 import csv
 import math
+
+# Takes CSV of scraped data for each team as a parameter.
+# Adds each CSV to a dictionary with player names as keys and list of stats as a value
 def hashData(schoolCSV):
 	data = []
 	dictKeys = [0]
@@ -12,14 +15,14 @@ def hashData(schoolCSV):
 
 	with open(schoolCSV) as csvfile:
 		readCSV = csv.reader(csvfile, delimiter='\n')
-		#append each csv row to a list
+		# append each csv row to a list
 		for row in readCSV:
 			if row:
 				data.append(row)
-		#Get number of players on each roster
+		# Get number of players on each roster
 		numOfPlayers = math.ceil(len(data) / 23)
-		#If team csv file doesn't specify player year, fill slot so index count is 
-		#not impacted
+		# If team csv file doesn't specify player year, fill slot so index count is 
+		# not impacted
 		filler = data[2][0]
 		filler = filler.strip(' ')
 		if filler.isdigit():
@@ -27,15 +30,15 @@ def hashData(schoolCSV):
 				data.insert(fillerIndex, "filler")
 				fillerIndex = fillerIndex +23
 	
-	#Add all player names to a list for use as dictionary keys
+	# Add all player names to a list for use as dictionary keys
 	while len(playerNames) <= numOfPlayers:
 		playerNames.append(data[index])
 		index = index +23
-	#This line needs to be here, idk man	
+	# This line needs to be here, idk man	
 	del playerNames[0]
 
-	#dictKey is a list of lists, this puts everything in one flat list and 
-	#strips excess whitespace and removes 0 at dictKey[0]
+	# dictKey is a list of lists, this puts everything in one flat list and 
+	# strips excess whitespace and removes 0 at dictKey[0]
 	for sublist in playerNames:
 		for player in sublist:
 			player = player.strip(' ')
@@ -58,9 +61,9 @@ def addToHash(playerDict, player, data, index):
 		playerStats.append(k[0])
 	playerDict[player] = playerStats
 
-#All values in playerDict are strings, this
-#converts all strings that can be ints and floats
-#to ints and floats
+# All values in playerDict are strings, this
+# converts all strings that can be ints and floats
+# to ints and floats
 def hashValueToInt(playerDict, player):
 		temp = []
 		for j in playerDict[player]:
