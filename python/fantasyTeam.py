@@ -24,11 +24,17 @@ while len(temp) < 8:
 	fantasyPlayer = input("Pick your 8 player roster: ")
 	temp.append(player(fantasyPlayer))
 
-#for i in range(8):
-#	for team in teams:
-#		for player in teams:
-#			if temp[i][0] == player:
-#				print(temp[i][0] + " " + str(calcPoints(team,temp[i][0])))
-#				rosterTotalPoints += calcPoints(albertaRoster,temp[i][0])
-#print("Total Team Points: " + rosterTotalPoints)
-print(temp)
+
+
+try:
+	for i in range(8):
+		for team in teams:
+			for player in team:
+				if temp[i][0] == player:
+					print(player + " " + str(calcPoints(team,temp[i][0])))
+					rosterTotalPoints += calcPoints(team,temp[i][0])
+				
+	print("Total Team Points: " + str(rosterTotalPoints))
+except IndexError as e:
+	print("You misspelled a players name!")
+
