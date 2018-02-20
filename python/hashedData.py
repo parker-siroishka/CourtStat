@@ -17,6 +17,7 @@ blocksSoloMult = 2
 blocksAss = 16
 blocksAssMult = 1
 
+#Each teams hashtable
 calgaryRoster = hashData("calgaryData.csv")
 trinityWesternRoster = hashData("trinityWesternData.csv")
 reginaRoster = hashData("reginaData.csv")
@@ -36,7 +37,7 @@ teams = [calgaryRoster,trinityWesternRoster,reginaRoster,albertaRoster,brandonRo
 leaderboards = []
 
 
-
+#Calculates players fantasy points based off of predefined multipliers
 def calcPoints(schoolRoster, playerName):
 	killPoints = (schoolRoster[playerName][kills]) * killsMult 
 	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
@@ -50,10 +51,12 @@ def calcPoints(schoolRoster, playerName):
 
 	return totalPoints 
 
+#prints all keys (player names) in school roster specified
 def displayNames(schoolRoster):
 	for keys in schoolRoster.keys():
 		print(keys)
 
+#Prints all player names and calculated stats beside them
 def displayStats(roster):
 	for player in roster:
 		try:
@@ -61,7 +64,7 @@ def displayStats(roster):
 		except TypeError:
 			print(player,": Not enough data")
 
-
+#Creates a league-wide leaderboard for points
 def createLeaderboards(teams):
 	for team in teams:
 		for player in team:
@@ -72,12 +75,12 @@ def createLeaderboards(teams):
 				pass
 	return leaderboards
 
-
+#sorts leaderboards from most points to least points
 def sortLeaderboards(leaderboards):
 	leaderboards.sort(key=operator.itemgetter(1))
 	for i in reversed(leaderboards):
 		print(i[1],": ",i[0])
-
+#barebones program testing implementation of methods and making an easy way to view all league-wide stats
 def run():
 	player = None
 	roster = None
