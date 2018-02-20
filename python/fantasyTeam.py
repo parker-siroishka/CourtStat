@@ -6,7 +6,8 @@ possibleStatsStrings = ["kills","errors","assists","aces","digs","blocksSolo","b
 roster = []
 rosterTotalPoints = 0
 
-
+#Sifts through all hashtables and keys (which are players names). If a key == player name you are wanting, 
+#all needed (possibleStatsStrings) stats are put into a list
 def player(fantasyPlayer):
 	stats = []
 	for team in teams:
@@ -18,7 +19,7 @@ def player(fantasyPlayer):
 					stats.append(string)	
 	return stats		
 
-
+#Loop through and pick team until 8 player roster is made
 temp = []
 while len(temp) < 8:
 	fantasyPlayer = input("Pick your 8 player roster: ")
@@ -26,6 +27,8 @@ while len(temp) < 8:
 
 
 
+
+#Display each player in roster and their points and teams total points in an easy and digestible way
 try:
 	for i in range(8):
 		for team in teams:
