@@ -1,5 +1,6 @@
 from readCSV import hashData
 from hashedData import teams,kills,errors,assists,aces,digs,blocksSolo,blocksAss, calcPoints
+import string
 
 possibleStats = [kills,errors,assists,aces,digs,blocksSolo,blocksAss]
 possibleStatsStrings = ["kills","errors","assists","aces","digs","blocksSolo","blocksAss"]
@@ -19,13 +20,22 @@ def player(fantasyPlayer):
 					stats.append(string)	
 	return stats		
 
-#Loop through and pick team until 8 player roster is made
-temp = []
-while len(temp) < 8:
+
+roster = []
+#for team in teams:
+	#for player in team:
+	
+#print(temp)
+#Loop through and pick team until 8 player roster is made	
+while len(roster) < 8:
 	fantasyPlayer = input("Pick your 8 player roster: ")
-	temp.append(player(fantasyPlayer))
+	fantasyPlayer = string.capwords(fantasyPlayer)
+	#print(fantasyPlayer)
+	roster.append(player(fantasyPlayer))
+	#else:
+	#	print("That player does not exist")
 
-
+print(roster)
 
 
 #Display each player in roster and their points and teams total points in an easy and digestible way
@@ -33,11 +43,11 @@ try:
 	for i in range(8):
 		for team in teams:
 			for player in team:
-				if temp[i][0] == player:
-					print(player + " " + str(calcPoints(team,temp[i][0])))
-					rosterTotalPoints += calcPoints(team,temp[i][0])
+				if roster[i][0] == player:
+					print(player + " " + str(calcPoints(team,roster[i][0])))
+					rosterTotalPoints += calcPoints(team,roster[i][0])
 				
 	print("Total Team Points: " + str(rosterTotalPoints))
 except IndexError as e:
-	print("You misspelled a players name!")
+	print("You somehow still got an error")
 
