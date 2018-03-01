@@ -1,4 +1,4 @@
-#team page urls
+#team page urls :)
 #[0]
 alberta = "http://canadawest.org/sports/mvball/2017-18/teams/alberta?view=lineup&r=0&pos="
 #[1]
