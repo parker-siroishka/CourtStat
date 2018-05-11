@@ -5,7 +5,7 @@ Fantasy Volleyball program that scrapes data from canadawest.org and computes a 
 ![alt text](https://github.com/parker-siroishka/Ustat/blob/master/readme_media/Capture.PNG)
 
 
-<p> <em>Beautiful Soup 4</em>: https://www.crummy.com/software/BeautifulSoup/ </p>
+<p> <em>*Beautiful Soup 4</em>: https://www.crummy.com/software/BeautifulSoup/ </p>
 <p><em>Stats ripped from</em>: http://canadawest.org/sports/mvball/index </p>
   
   
