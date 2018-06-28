@@ -20,7 +20,7 @@ def hashData(schoolCSV):
 			if row:
 				data.append(row)
 		# Get number of players on each roster
-		numOfPlayers = math.ceil(len(data) / 23)
+		numOfPlayers = int(math.ceil(len(data) / 23))
 		# If team csv file doesn't specify player year, fill slot so index count is 
 		# not impacted
 		filler = data[2][0]

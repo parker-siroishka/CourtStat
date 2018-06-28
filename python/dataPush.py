@@ -1,5 +1,10 @@
 from readCSV import hashData, addToHash
+from firebase import firebase
 import operator
+
+firebase = firebase.FirebaseApplication('https://statgen-993f4.firebaseio.com/')
+result = firebase.post('/leagues/volleyball/calgary', {'Parker Siroishka':{'Kills':'420'}})
+
 
 position = 1
 kills = 4
@@ -99,9 +104,10 @@ def run():
 	roster = None
 	schools = ["UC","TWU","REG","UAB","BU","GMU","MAN","MRU","SASK","TRU","UBC","UBCO","WPG","L"]
 	while True:
-		print(" -UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",\
+		print( "-UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",\
 				"-MRU-","\n","-SASK-","\n","-TRU-","\n","-UBC-","\n","-UBCO-","\n","-WPG-","\n","-(L)EADERBOARDS-")
-		temp = input("Pick a Team: ")
+		temp = raw_input("Pick a Team: ")
+		print(temp)
 		if temp in schools:
 			if temp == "UC":
 				displayStats(calgaryRoster)
@@ -134,6 +140,8 @@ def run():
 		else:
 			print("Invalid Input")
 
-run()
+#run()
+print(result)
+
 	
 
