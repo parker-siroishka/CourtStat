@@ -61,7 +61,7 @@ def putData():
 		for player in roster:
 
 			try:
-				result =firebase.put(('/league/volleyball/'+school), player, {'total points':str(calcStatsList(roster, player)[0]),'kill points':str(calcStatsList(roster, player)[1]),'assist points':str(calcStatsList(roster, player)[2]),'ace points':str(calcStatsList(roster, player)[3]), 'dig points': str(calcStatsList(roster, player)[4]), 'blocks solo points': str(calcStatsList(roster, player)[5]), 'blocks assists points': str(calcStatsList(roster, player)[6]), 'error points': str(calcStatsList(roster, player)[7])})
+				result =firebase.put(('/playerData/'+school), player, {'total points':str(calcStatsList(roster, player)[0]),'kill points':str(calcStatsList(roster, player)[1]),'assist points':str(calcStatsList(roster, player)[2]),'ace points':str(calcStatsList(roster, player)[3]), 'dig points': str(calcStatsList(roster, player)[4]), 'blocks solo points': str(calcStatsList(roster, player)[5]), 'blocks assists points': str(calcStatsList(roster, player)[6]), 'error points': str(calcStatsList(roster, player)[7])})
 			except TypeError:
 				pass
 
