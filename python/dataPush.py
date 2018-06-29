@@ -39,21 +39,6 @@ winnipegRoster = hashData("winnipegData.csv")
 teams = [calgaryRoster,trinityWesternRoster,albertaRoster,brandonRoster,grantMacewanRoster,manitobaRoster\
 			,mountRoyalRoster,saskatchewanRoster,thompsonRiversRoster,ubcRoster,ubcOkanaganRoster,winnipegRoster]
 
-
-#Calculates players fantasy points based off of predefined multipliers
-def calcPoints(schoolRoster, playerName):
-	killPoints = (schoolRoster[playerName][kills]) * killsMult 
-	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
-	acesPoints = (schoolRoster[playerName][aces]) * acesMult 
-	digPoints = (schoolRoster[playerName][digs]) * digsMult
-	blocksSoloPoints = (schoolRoster[playerName][blocksSolo]) * blocksSoloMult
-	blocksAssPoints = (schoolRoster[playerName][blocksAss]) * blocksAssMult
-	errorPoints = (schoolRoster[playerName][errors]) * errorsMult 
-
-	totalPoints = killPoints+assistPoints+acesPoints+digPoints+blocksSoloPoints+blocksAssPoints+errorPoints
-
-	return totalPoints 
-
 def calcStatsList(schoolRoster, playerName):
 	killPoints = (schoolRoster[playerName][kills]) * killsMult 
 	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
@@ -73,11 +58,12 @@ def calcStatsList(schoolRoster, playerName):
 def putData():
 	schools = ['UC','TWU','UAB','BU','GMU','MAN','MRU','SASK','TRU','UBC','UBCO','WPG']
 	for school, roster in itertools.izip(schools, teams):
-			for player in roster:
-				try:
-					result =firebase.put(('/league/volleyball/'+school), player, {'total points':str(calcPoints(roster,player))})
-				except TypeError:
-					pass
+		for player in roster:
+
+			try:
+				result =firebase.put(('/league/volleyball/'+school), player, {'total points':str(calcStatsList(roster, player)[0]),'kill points':str(calcStatsList(roster, player)[1]),'assist points':str(calcStatsList(roster, player)[2]),'ace points':str(calcStatsList(roster, player)[3]), 'dig points': str(calcStatsList(roster, player)[4]), 'blocks solo points': str(calcStatsList(roster, player)[5]), 'blocks assists points': str(calcStatsList(roster, player)[6]), 'error points': str(calcStatsList(roster, player)[7])})
+			except TypeError:
+				pass
 
 putData()
 
