@@ -63,7 +63,9 @@ def calcStatsList(schoolRoster, playerName):
 	blocksAssPoints = (schoolRoster[playerName][blocksAss]) * blocksAssMult
 	errorPoints = (schoolRoster[playerName][errors]) * errorsMult 
 
-	allStats = [killPoints, assistPoints, acesPoints, digPoints, blocksSoloPoints, blocksAssPoints, errorPoints]
+	totalPoints = killPoints+assistPoints+acesPoints+digPoints+blocksSoloPoints+blocksAssPoints+errorPoints
+
+	allStats = [totalPoints, killPoints, assistPoints, acesPoints, digPoints, blocksSoloPoints, blocksAssPoints, errorPoints]
 
 	return  allStats
 
