@@ -1,4 +1,5 @@
 import urllib.request
+from urllib.request import Request, urlopen
 import csv
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -7,8 +8,10 @@ from teamURLs import teamurls, teamNames
 
 def writeStats(url, name):
 	quote_page = url
+	user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46'
 	# get the HTML page of the url declared
-	page = urllib.request.urlopen(quote_page)
+	request = Request(quote_page, headers={'User-Agent': user_agent})
+	page = urlopen(request)
 	soup = BeautifulSoup(page, 'html.parser')
 	# Find all <div> tags that are labeled class 'scrollable'. There are
 	# multiple miscellaneous <div> classes butwe only want the 0th because
