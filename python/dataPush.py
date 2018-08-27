@@ -1,7 +1,7 @@
 from readCSV import hashData, addToHash
 from firebase import firebase
 import operator
-import itertools 
+import itertools
 
 firebase = firebase.FirebaseApplication('https://statgen-993f4.firebaseio.com/')
 
@@ -57,7 +57,7 @@ def calcStatsList(schoolRoster, playerName):
 
 def putData():
 	schools = ['UC','TWU','UAB','BU','GMU','MAN','MRU','SASK','TRU','UBC','UBCO','WPG']
-	for school, roster in itertools.izip(schools, teams):
+	for school, roster in zip(schools, teams):
 		for player in roster:
 
 			try:
