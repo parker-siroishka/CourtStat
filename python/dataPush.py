@@ -5,8 +5,6 @@ import itertools
 
 firebase = firebase.FirebaseApplication('https://statgen-993f4.firebaseio.com/')
 
-
-position = 1
 kills = 4
 killsMult = 1
 errors = 6
@@ -40,6 +38,14 @@ teams = [calgaryRoster,trinityWesternRoster,albertaRoster,brandonRoster,grantMac
 			,mountRoyalRoster,saskatchewanRoster,thompsonRiversRoster,ubcRoster,ubcOkanaganRoster,winnipegRoster]
 
 def calcStatsList(schoolRoster, playerName):
+	# Checks if the team roster has the players year listed or not. 
+	# If the year is listed, the position will be index [1]. If the
+	# name is not listed, the position will be index[0].
+	if(len(schoolRoster[playerName]) == 22):
+		playerPosition = (schoolRoster[playerName][0])
+	else:
+		playerPosition = (schoolRoster[playerName][1])
+
 	killPoints = (schoolRoster[playerName][kills]) * killsMult 
 	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
 	acesPoints = (schoolRoster[playerName][aces]) * acesMult 
@@ -50,7 +56,7 @@ def calcStatsList(schoolRoster, playerName):
 
 	totalPoints = killPoints+assistPoints+acesPoints+digPoints+blocksSoloPoints+blocksAssPoints+errorPoints
 
-	allStats = [totalPoints, killPoints, assistPoints, acesPoints, digPoints, blocksSoloPoints, blocksAssPoints, errorPoints]
+	allStats = [totalPoints, killPoints, assistPoints, acesPoints, digPoints, blocksSoloPoints, blocksAssPoints, errorPoints, playerPosition]
 
 	return  allStats
 
@@ -61,7 +67,7 @@ def putData():
 		for player in roster:
 
 			try:
-				result =firebase.put(('/playerData/'+school), player, {'total points':str(calcStatsList(roster, player)[0]),'kill points':str(calcStatsList(roster, player)[1]),'assist points':str(calcStatsList(roster, player)[2]),'ace points':str(calcStatsList(roster, player)[3]), 'dig points': str(calcStatsList(roster, player)[4]), 'blocks solo points': str(calcStatsList(roster, player)[5]), 'blocks assists points': str(calcStatsList(roster, player)[6]), 'error points': str(calcStatsList(roster, player)[7])})
+				result =firebase.put(('/playerData/'+school), player, {'position':str(calcStatsList(roster, player)[8]),'total points':str(calcStatsList(roster, player)[0]),'kill points':str(calcStatsList(roster, player)[1]),'assist points':str(calcStatsList(roster, player)[2]),'ace points':str(calcStatsList(roster, player)[3]), 'dig points': str(calcStatsList(roster, player)[4]), 'blocks solo points': str(calcStatsList(roster, player)[5]), 'blocks assists points': str(calcStatsList(roster, player)[6]), 'error points': str(calcStatsList(roster, player)[7])})
 			except TypeError:
 				pass
 

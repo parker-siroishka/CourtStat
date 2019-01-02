@@ -34,6 +34,6 @@ def writeStats(url, name):
 			csv_writer.writerow([j])
 
 
-for i in range(0,13):
+for i in range(0,12):
 	writeStats(teamurls[i], teamNames[i])	
 	print("writing "+teamNames[i]+"...("+str(12-i)+")")		

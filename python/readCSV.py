@@ -53,6 +53,8 @@ def hashData(schoolCSV):
 
 	for player in dictKeys:
 		hashValueToInt(playerDict, player)
+
+	
 	return playerDict
 	
 def addToHash(playerDict, player, data, index):
