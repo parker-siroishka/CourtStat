@@ -2,7 +2,7 @@
 #[0]
 alberta = "http://canadawest.org/sports/mvball/2018-19/teams/alberta?view=lineup&r=0&pos="
 #[1]
-brandon = "http://canadawest.org/sports/mvball/2018-19/teams/brandon?view=lineup&r=0&pos="
+brandon = "https://www.canadawest.org/sports/mvball/2018-19/teams/brandon?view=lineup&r=0&pos="
 #[2]
 calgary = "http://canadawest.org/sports/mvball/2018-19/teams/calgary?view=lineup&r=0&pos="
 #[3]

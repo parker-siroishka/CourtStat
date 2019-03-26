@@ -7,6 +7,7 @@ from teamURLs import teamurls, teamNames
 
 
 def writeStats(url, name):
+	
 	quote_page = url
 	user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46'
 	# get the HTML page of the url declared
@@ -14,7 +15,7 @@ def writeStats(url, name):
 	page = urlopen(request)
 	soup = BeautifulSoup(page, 'html.parser')
 	# Find all <div> tags that are labeled class 'scrollable'. There are
-	# multiple miscellaneous <div> classes butwe only want the 0th because
+	# multiple miscellaneous <div> classes but we only want the 0th because
 	# that is all players stats
 	listOfScrollableDivs = soup.findAll('div', {'class': 'scrollable'})
 	rosterStats = listOfScrollableDivs[0]
@@ -26,7 +27,7 @@ def writeStats(url, name):
 	# Chop everything after the last players last stat and remake list
 	end = rosterStatsList.index("Totals")
 	rosterStatsList = rosterStatsList[29:end-1]
-		
+	
 
 	with open((name + 'Data.csv'), 'w') as csv_file:
 		csv_writer = csv.writer(csv_file)

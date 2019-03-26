@@ -41,7 +41,8 @@ def calcStatsList(schoolRoster, playerName):
 	# Checks if the team roster has the players year listed or not. 
 	# If the year is listed, the position will be index [1]. If the
 	# name is not listed, the position will be index[0].
-	if(len(schoolRoster[playerName]) == 22):
+	if(schoolRoster[playerName][1] == 'f'):
+		
 		playerPosition = (schoolRoster[playerName][0])
 	else:
 		playerPosition = (schoolRoster[playerName][1])
