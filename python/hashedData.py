@@ -37,7 +37,7 @@ teams = [calgaryRoster,trinityWesternRoster,reginaRoster,albertaRoster,brandonRo
 leaderboards = []
 
 
-#Calculates players fantasy points based off of predefined multipliers
+# LCalculates players fantasy points based off of predefined multipliers
 def calcPoints(schoolRoster, playerName):
 	killPoints = (schoolRoster[playerName][kills]) * killsMult 
 	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
