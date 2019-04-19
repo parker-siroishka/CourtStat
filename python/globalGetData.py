@@ -2,7 +2,6 @@ import urllib.request
 from urllib.request import Request, urlopen
 import csv
 from bs4 import BeautifulSoup
-from datetime import datetime
 from teamURLs import teamurls, teamNames
 
 

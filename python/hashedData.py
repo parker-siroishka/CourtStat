@@ -32,12 +32,12 @@ ubcRoster = hashData("ubcData.csv")
 ubcOkanaganRoster = hashData("ubcOkanaganData.csv")
 winnipegRoster = hashData("winnipegData.csv")
 
-teams = [calgaryRoster,trinityWesternRoster,reginaRoster,albertaRoster,brandonRoster,grantMacewanRoster,manitobaRoster\
+teams = [calgaryRoster,trinityWesternRoster,reginaRoster,albertaRoster,brandonRoster,grantMacewanRoster,manitobaRoster
 			,mountRoyalRoster,saskatchewanRoster,thompsonRiversRoster,ubcRoster,ubcOkanaganRoster,winnipegRoster]
 leaderboards = []
 
 
-#Calculates players fantasy points based off of predefined multipliers
+# Calculates players fantasy points based off of predefined multipliers
 def calcPoints(schoolRoster, playerName):
 	killPoints = (schoolRoster[playerName][kills]) * killsMult 
 	assistPoints = (schoolRoster[playerName][assists]) * assistsMult 
@@ -51,22 +51,22 @@ def calcPoints(schoolRoster, playerName):
 
 	return totalPoints 
 
-#prints all keys (player names) in school roster specified
+# prints all keys (player names) in school roster specified
 def displayNames(schoolRoster):
 	for keys in schoolRoster.keys():
 		print(keys)
 
-#Prints all player names and calculated stats beside them
+# Prints all player names and calculated stats beside them
 def displayStats(roster):
 	for player in roster:
 		try:
-			print(player,": ",calcPoints(roster, player))
+			print(player,": ",calcPoints(roster, player), )
 		except TypeError:
 			print(player,": Not enough data")
 
-#Creates a league-wide leaderboard for points
-def createLeaderboards(teams):
-	for team in teams:
+# Creates a league-wide leaderboard for points
+def createLeaderboards(teamsArr):
+	for team in teamsArr:
 		for player in team:
 			#Doesnt add players with insufficient data
 			try:
@@ -75,18 +75,20 @@ def createLeaderboards(teams):
 				pass
 	return leaderboards
 
-#sorts leaderboards from most points to least points
-def sortLeaderboards(leaderboards):
-	leaderboards.sort(key=operator.itemgetter(1))
+# sorts leaderboards from most points to least points
+def sortLeaderboards(leaderboardsArr):
+	leaderboardsArr.sort(key=operator.itemgetter(1))
 	for i in reversed(leaderboards):
 		print(i[1],": ",i[0])
-#barebones program testing implementation of methods and making an easy way to view all league-wide stats
+
+
+# barebones program testing implementation of methods and making an easy way to view all league-wide stats
+
+
 def run():
-	player = None
-	roster = None
 	schools = ["UC","TWU","REG","UAB","BU","GMU","MAN","MRU","SASK","TRU","UBC","UBCO","WPG","L"]
 	while True:
-		print(" -UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",\
+		print(" -UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",
 				"-MRU-","\n","-SASK-","\n","-TRU-","\n","-UBC-","\n","-UBCO-","\n","-WPG-","\n","-(L)EADERBOARDS-")
 		temp = input("Pick a Team: ")
 		if temp in schools:
