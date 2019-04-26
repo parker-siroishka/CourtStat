@@ -28,13 +28,23 @@ def hashData(schoolCSV):
 		if filler.isdigit():
 			for players in range(numOfPlayers):
 				data.insert(fillerIndex, "filler")
-				fillerIndex = fillerIndex +23
+				fillerIndex += 23
 	
 	# Add all player names to a list for use as dictionary keys
 	while len(playerNames) <= numOfPlayers:
-		playerNames.append(data[index])
-		index = index +23
-	# This line needs to be here, idk man	
+
+		if len(data[index-1][0]) > 5 and not(isFloat(data[index-1][0]) or data[index-1][0].isdigit()):
+			playerNames.append(data[index-1])
+
+		elif len(data[index+1][0]) > 5 and not(isFloat(data[index+1][0])) and not(data[index+1][0].isdigit()):
+			playerNames.append(data[index + 1])
+
+		else:
+			playerNames.append(data[index])
+
+		index += 23
+
+	# This line needs to be here, idk man
 	del playerNames[0]
 
 	# dictKey is a list of lists, this puts everything in one flat list and 
@@ -49,7 +59,7 @@ def hashData(schoolCSV):
 
 	for player in dictKeys: 	
 		addToHash(playerDict, player, data, playerIndex)
-		playerIndex = playerIndex +23
+		playerIndex += 23
 
 	for player in dictKeys:
 		hashValueToInt(playerDict, player)
@@ -69,6 +79,7 @@ def addToHash(playerDict, player, data, index):
 def hashValueToInt(playerDict, player):
 		temp = []
 		for j in playerDict[player]:
+			j = str(j)
 			j = j.strip(' ')
 			j = ' '.join(j.split())
 			if j.isdigit():
