@@ -34,8 +34,8 @@ def calcStatsList(schoolRoster, playerName):
 	# Checks if the team roster has the players year listed or not.
 	# If the year is listed, the position will be index [1]. If the
 	# name is not listed, the position will be index[0].
-	#print(schoolRoster)
-	if schoolRoster[playerName][1] == 'f' and not(isinstance(schoolRoster[playerName][2],int)):
+
+	if (schoolRoster[playerName][1] == 'f') and not(isinstance(schoolRoster[playerName][2],int)) and (schoolRoster[playerName][2] != "-"):
 		playerPosition = schoolRoster[playerName][2]
 		killsTOT = (schoolRoster[playerName][kills+1])
 		assistsTOT = (schoolRoster[playerName][assists+1])
@@ -46,7 +46,6 @@ def calcStatsList(schoolRoster, playerName):
 		errorsTOT = (schoolRoster[playerName][errors+1])
 
 	elif schoolRoster[playerName][1] == 'f':
-		
 		playerPosition = (schoolRoster[playerName][0])
 		killsTOT = (schoolRoster[playerName][kills])
 		assistsTOT = (schoolRoster[playerName][assists])
@@ -82,8 +81,8 @@ def putData():
 			try:
 				playerStats = calcStatsList(roster, player)
 				print(player, playerStats)
-				result =firebase.put(('/playerData/'+school), player, {'position':str(playerStats[7]),'killsTOT':str(playerStats[0]),'assistsTOT':str(playerStats[1]),'acesTOT':str(playerStats[2]),\
-				  													   'digsTOT': str(playerStats[3]), 'blocks soloTOT': str(playerStats[4]), 'blocks assistsTOT': str(playerStats[5]), 'errorsTOT': str(playerStats[6])})
+				# result =firebase.put(('/playerData/'+school), player, {'position':str(playerStats[7]),'killsTOT':str(playerStats[0]),'assistsTOT':str(playerStats[1]),'acesTOT':str(playerStats[2]),\
+				#   													   'digsTOT': str(playerStats[3]), 'blocks soloTOT': str(playerStats[4]), 'blocks assistsTOT': str(playerStats[5]), 'errorsTOT': str(playerStats[6])})
 			except TypeError:
 				pass
 
