@@ -8,11 +8,10 @@ def hashData(schoolCSV):
 	dictKeys = [0]
 	playerDict = {}
 	playerNames = [0]
-	nextPlayer = 54
 	index = 0
 	fillerIndex = 2
 	playerIndex = 1
-
+	ind = 1
 	with open(schoolCSV) as csvfile:
 		readCSV = csv.reader(csvfile, delimiter='\n')
 		# append each csv row to a list
@@ -21,15 +20,27 @@ def hashData(schoolCSV):
 				data.append(row)
 		# Get number of players on each roster
 		numOfPlayers = int(math.ceil(len(data) / 23))
-		# If team csv file doesn't specify player year, fill slot so index count is 
+		# If team csv file doesn't specify player year, fill slot so index count is
 		# not impacted
 		filler = data[2][0]
+
 		filler = filler.strip(' ')
+
+		print(schoolCSV)
+		for players in range(numOfPlayers):
+			print(data[ind][0])
+			if not str(data[ind+1][0]).isdigit():
+				print(ind+1, data[ind+1][0])
+				print(not str(data[ind+1][0]).isdigit())
+				print("f")
+				ind += 23
+
 		if filler.isdigit():
 			for players in range(numOfPlayers):
-				data.insert(fillerIndex, "filler")
+				data.insert(fillerIndex, "f")
 				fillerIndex += 23
-	
+
+
 	# Add all player names to a list for use as dictionary keys
 	while len(playerNames) <= numOfPlayers:
 
@@ -43,6 +54,7 @@ def hashData(schoolCSV):
 			playerNames.append(data[index])
 
 		index += 23
+
 
 	# This line needs to be here, idk man
 	del playerNames[0]
