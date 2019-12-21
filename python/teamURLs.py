@@ -1,36 +1,30 @@
 #team page urls :)
 #[0]
-alberta = "http://canadawest.org/sports/mvball/2018-19/teams/alberta?view=lineup&r=0&pos="
+alberta = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/alberta?view=lineup"
 #[1]
-brandon = "https://www.canadawest.org/sports/mvball/2018-19/teams/brandon?view=lineup&r=0&pos="
+brandon = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/brandon?view=lineup"
 #[2]
-calgary = "http://canadawest.org/sports/mvball/2018-19/teams/calgary?view=lineup&r=0&pos="
+calgary = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/calgary?view=lineup"
 #[3]
-macewan = "http://canadawest.org/sports/mvball/2018-19/teams/macewan?view=lineup&r=0&pos="
+macewan = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/macewan?view=lineup"
 #[4]
-manitoba = "http://canadawest.org/sports/mvball/2018-19/teams/manitoba?view=lineup&r=0&pos="
+manitoba = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/manitoba?view=lineup"
 #[5]
-mountRoyal = "http://canadawest.org/sports/mvball/2018-19/teams/mountroyal?view=lineup&r=0&pos="
+mountRoyal = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/mountroyal?view=lineup"
 #[7]
-saskatchewan = "http://canadawest.org/sports/mvball/2018-19/teams/saskatchewan?view=lineup&r=0&pos="
+saskatchewan = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/saskatchewan?view=lineup"
 #[8]
-thompsonRivers = "http://canadawest.org/sports/mvball/2018-19/teams/thompsonrivers?view=lineup&r=0&pos="
+thompsonRivers = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/thompsonrivers?view=lineup"
 #[9]
-trinityWestern = "http://canadawest.org/sports/mvball/2018-19/teams/trinitywestern?view=lineup&r=0&pos="
+trinityWestern = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/trinitywestern?view=lineup"
 #[10]
-ubc = "http://canadawest.org/sports/mvball/2018-19/teams/ubc?view=lineup&r=0&pos="
+ubc = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/ubc?view=lineup"
 #[11]
-ubcOkanagan = "http://canadawest.org/sports/mvball/2018-19/teams/ubcokanagan?view=lineup&r=0&pos="
+ubcOkanagan = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/ubcokanagan?view=lineup"
 #[12]
-winnipeg = "http://canadawest.org/sports/mvball/2018-19/teams/winnipeg?view=lineup&r=0&pos="
+winnipeg = "https://canadawest.prestosports.com/sports/mvball/2019-20/teams/winnipeg?view=lineup"
 
-teamurls = ["http://canadawest.org/sports/mvball/2018-19/teams/alberta?view=lineup&r=0&pos=", "http://canadawest.org/sports/mvball/2018-19/teams/brandon?view=lineup&r=0&pos=", 
-				"http://canadawest.org/sports/mvball/2018-19/teams/calgary?view=lineup&r=0&pos=", "http://canadawest.org/sports/mvball/2018-19/teams/macewan?view=lineup&r=0&pos=", 
-				 "http://canadawest.org/sports/mvball/2018-19/teams/manitoba?view=lineup&r=0&pos=", "http://canadawest.org/sports/mvball/2018-19/teams/mountroyal?view=lineup&r=0&pos=", 
-				  "http://canadawest.org/sports/mvball/2018-19/teams/saskatchewan?view=lineup&r=0&pos=", 
-				  "http://canadawest.org/sports/mvball/2018-19/teams/thompsonrivers?view=lineup&r=0&pos=", "http://canadawest.org/sports/mvball/2018-19/teams/trinitywestern?view=lineup&r=0&pos=", 
-				  "http://canadawest.org/sports/mvball/2018-19/teams/ubc?view=lineup&r=0&pos=", "http://canadawest.org/sports/mvball/2018-19/teams/ubcokanagan?view=lineup&r=0&pos=", 
-				  "http://canadawest.org/sports/mvball/2018-19/teams/winnipeg?view=lineup&r=0&pos="]
+teamurls = [alberta, brandon, calgary, macewan, manitoba, mountRoyal, saskatchewan, thompsonRivers, trinityWestern, ubc, ubcOkanagan, winnipeg]
 
 teamNames = ["alberta", "brandon", "calgary", "macewan", "manitoba", "mountRoyal", "saskatchewan", "thompsonRivers",
 			"trinityWestern", "ubc", "ubcOkanagan", "winnipeg"]

@@ -89,41 +89,41 @@ def sortLeaderboards(leaderboardsArr):
 
 def run():
 	schools = ["UC","TWU","REG","UAB","BU","GMU","MAN","MRU","SASK","TRU","UBC","UBCO","WPG","L"]
-	while True:
-		print(" -UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",
-				"-MRU-","\n","-SASK-","\n","-TRU-","\n","-UBC-","\n","-UBCO-","\n","-WPG-","\n","-(L)EADERBOARDS-")
-		temp = input("Pick a Team: ")
-		if temp in schools:
-			if temp == "UC":
-				displayStats(calgaryRoster)
-			elif temp == "TWU":
-				displayStats(trinityWesternRoster)
-			elif temp == "REG":
-				displayStats(reginaRoster)
-			elif temp == "UAB":
-				displayStats(albertaRoster)
-			elif temp == "BU":
-				displayStats(brandonRoster)
-			elif temp == "GMU":
-				displayStats(grantMacewanRoster)
-			elif temp == "MAN":
-				displayStats(manitobaRoster)
-			elif temp == "MRU":
-				displayStats(mountRoyalRoster)
-			elif temp == "SASK":
-				displayStats(saskatchewanRoster)
-			elif temp == "TRU":
-				displayStats(thompsonRiversRoster)
-			elif temp == "UBC":
-				displayStats(ubcRoster)
-			elif temp == "UBCO":
-				displayStats(ubcOkanaganRoster)
-			elif temp == "WPG":
-				displayStats(winnipegRoster)
-			elif temp == "L":
-					sortLeaderboards(createLeaderboards(teams))
-		else:
-			print("Invalid Input")
+	# while True:
+	# 	print(" -UC-", "\n","-TWU-", "\n","-REG-","\n","-UAB-", "\n","-BU-","\n","-GMU-","\n","-MAN-","\n",
+	# 			"-MRU-","\n","-SASK-","\n","-TRU-","\n","-UBC-","\n","-UBCO-","\n","-WPG-","\n","-(L)EADERBOARDS-")
+	temp = input("Pick a Team: ")
+	if temp in schools:
+		if temp == "UC":
+			displayStats(calgaryRoster)
+		elif temp == "TWU":
+			displayStats(trinityWesternRoster)
+		elif temp == "REG":
+			displayStats(reginaRoster)
+		elif temp == "UAB":
+			displayStats(albertaRoster)
+		elif temp == "BU":
+			displayStats(brandonRoster)
+		elif temp == "GMU":
+			displayStats(grantMacewanRoster)
+		elif temp == "MAN":
+			displayStats(manitobaRoster)
+		elif temp == "MRU":
+			displayStats(mountRoyalRoster)
+		elif temp == "SASK":
+			displayStats(saskatchewanRoster)
+		elif temp == "TRU":
+			displayStats(thompsonRiversRoster)
+		elif temp == "UBC":
+			displayStats(ubcRoster)
+		elif temp == "UBCO":
+			displayStats(ubcOkanaganRoster)
+		elif temp == "WPG":
+			displayStats(winnipegRoster)
+		elif temp == "L":
+				sortLeaderboards(createLeaderboards(teams))
+	else:
+		print("Invalid Input")
 
 run()
 	
