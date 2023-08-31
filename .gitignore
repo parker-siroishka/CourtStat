@@ -9,3 +9,5 @@ media/Capture.pdn
 *.json
 *.xml
 *.xml
+*.env
+*.txt
