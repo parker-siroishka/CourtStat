@@ -1,0 +1,30 @@
+<mxfile host="Electron" modified="2023-08-19T23:38:34.580Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="bzQkk4Ab8QWT03KYEe1Q" version="21.6.8" type="device">
+  <diagram name="Page-1" id="XkPA3Y4uYkqNGSzOUJGO">
+    <mxGraphModel dx="2074" dy="1204" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zHzo4ZDpaftSCfgucNee-1" value="Player Data&lt;br&gt;(Canada West)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="200" width="135" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="zHzo4ZDpaftSCfgucNee-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="zHzo4ZDpaftSCfgucNee-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="600" as="sourcePoint" />
+            <mxPoint x="734" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zHzo4ZDpaftSCfgucNee-3" value="Scraped &amp;amp; Formatted" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zHzo4ZDpaftSCfgucNee-2">
+          <mxGeometry x="-0.0339" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zHzo4ZDpaftSCfgucNee-4" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="690" y="470" width="80" height="106.67" as="geometry" />
+        </mxCell>
+        <mxCell id="zHzo4ZDpaftSCfgucNee-5" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#000103;shadow=0;dashed=0;shape=mxgraph.ios7.icons.reload;" vertex="1" parent="1">
+          <mxGeometry x="790" y="360" width="24" height="27" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
