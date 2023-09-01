@@ -11,3 +11,4 @@ media/Capture.pdn
 *.xml
 *.env
 *.txt
+./python
