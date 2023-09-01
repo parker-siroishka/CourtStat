@@ -1,7 +1,7 @@
 from urllib.request import Request, urlopen
 import re
 from bs4 import BeautifulSoup
-from mvbTeamURLS import team_urls
+from mvbTeamURLS import team_urls, team_names
 
 
 def get_team_data(team_url: str):
@@ -22,19 +22,22 @@ def get_team_data(team_url: str):
 		if len(cols) == 0:
 			cols = row.findAll('th')
 		
-		cols = [ele.text.strip() for ele in cols]
+		cols = [ele.text.strip() if ele.text.strip() != '' else 'N/A' for ele in cols]
 		
 		roster_data.append([
 			re.sub(' +', ' ', 
 	  			ele.replace('\n', '').replace('\r', '')) 
 			for ele in cols if ele
 		])
-
+  
 	return roster_data
 
 def get_all_teams_data():
     res = []
-    for team_url in team_urls:
-        team_data = get_all_teams_data(team_url)
-        res.append(team_data)
+    for team_url, team_name in zip(team_urls, team_names):
+        team_data = get_team_data(team_url)
+        print('Team scraped...')
+        res.append((team_name, team_data))
+    return res
 
+get_all_teams_data()
