@@ -57,27 +57,27 @@ async def retrieve_players():
 
 
 # Add a new player into to the database
-async def add_player(player_data: dict) -> dict:
-    player = await player_collection.insert_one(player_data)
-    new_player = await player_collection.find_one({"_id": player.inserted_id})
+def add_player(player_data: dict) -> dict:
+    player = player_collection.insert_one(player_data)
+    new_player = player_collection.find_one({"_id": player.inserted_id})
     return player_helper(new_player)
 
 
 # Retrieve a player with a matching ID
-async def retrieve_player(id: str) -> dict:
-    player = await player_collection.find_one({"_id": ObjectId(id)})
+def retrieve_player(id: str) -> dict:
+    player = player_collection.find_one({"_id": ObjectId(id)})
     if player:
         return player_helper(player)
 
 
 # Update a player with a matching ID
-async def update_player(id: str, data: dict):
+def update_player(id: str, data: dict):
     # Return false if an empty request body is sent.
     if len(data) < 1:
         return False
-    player = await player_collection.find_one({"_id": ObjectId(id)})
+    player = player_collection.find_one({"_id": ObjectId(id)})
     if player:
-        updated_player = await player_collection.update_one(
+        updated_player = player_collection.update_one(
             {"_id": ObjectId(id)}, {"$set": data}
         )
         if updated_player:
@@ -86,8 +86,8 @@ async def update_player(id: str, data: dict):
 
 
 # Delete a player from the database
-async def delete_player(id: str):
-    player = await player_collection.find_one({"_id": ObjectId(id)})
+def delete_player(id: str):
+    player =  player_collection.find_one({"_id": ObjectId(id)})
     if player:
-        await player_collection.delete_one({"_id": ObjectId(id)})
+        player_collection.delete_one({"_id": ObjectId(id)})
         return True
