@@ -1,8 +1,0 @@
-export const firebaseConfig = {
-    apiKey: "AIzaSyCOPDe8_PIsgPIZABBXfou4v95XM3yvTBQ",
-    authDomain: "statgen-993f4.firebaseapp.com",
-    databaseURL: "https://statgen-993f4.firebaseio.com",
-    projectId: "statgen-993f4",
-    storageBucket: "",
-    messagingSenderId: "494166844594"
-};
