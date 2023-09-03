@@ -2,8 +2,9 @@
 import os
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from scrapeSite import get_all_teams_data
+from scrape import get_all_teams_data
 from dotenv import load_dotenv
+from utils import rename_headers
 
 load_dotenv()
 MONGODB_URL = os.getenv('MONGODB_URL')

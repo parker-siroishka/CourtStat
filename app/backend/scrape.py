@@ -1,7 +1,7 @@
 from urllib.request import Request, urlopen
 import re
 from bs4 import BeautifulSoup
-from mvbTeamURLS import team_urls, team_names
+from mvb_team_urls import team_urls, team_names
 
 
 def get_team_data(team_url: str):
