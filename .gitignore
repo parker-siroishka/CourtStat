@@ -10,5 +10,4 @@ media/Capture.pdn
 *.xml
 *.xml
 *.env
-*.txt
 venv/
