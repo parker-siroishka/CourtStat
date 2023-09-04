@@ -49,9 +49,9 @@ def player_helper(player) -> dict:
     }
 
 # Retrieve all players present in the database
-async def retrieve_players():
+def retrieve_players():
     players = []
-    async for player in player_collection.find():
+    for player in player_collection.find():
         players.append(player_helper(player))
     return players
 
