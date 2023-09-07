@@ -31,7 +31,7 @@ class PlayerSchema(BaseModel):
     PointsPerSet: str = Field(..., alias="pts/s")
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "_id":{
                     "$oid":"64f22e4d4e56a84650f5fa21"
@@ -94,7 +94,7 @@ class UpdatePlayerModel(BaseModel):
     PointsPerSet: Optional[str]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "_id":{
                     "$oid":"64f22e4d4e56a84650f5fa21"
