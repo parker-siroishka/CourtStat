@@ -39,5 +39,3 @@ def get_all_teams_data():
         print('Team scraped...')
         res.append((team_name, team_data))
     return res
-
-get_all_teams_data()

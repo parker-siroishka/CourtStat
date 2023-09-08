@@ -1,7 +1,11 @@
-from typing import Optional
+from typing import Optional, List, Dict
 
 from pydantic import BaseModel, Field
 
+
+class StatisticsModel(BaseModel):
+    currentTotal: float  # Current total for the statistic
+    historical: List[float]  # List of historical values
 
 class PlayerSchema(BaseModel):
     Team: str = Field(...)
@@ -9,26 +13,7 @@ class PlayerSchema(BaseModel):
     Name: str = Field(...)
     Yr: str = Field(...)
     Pos: str = Field(...)
-    Matches: str = Field(..., alias="m")
-    Sets: str = Field(..., alias="s")
-    Kills: str = Field(..., alias="k")
-    KillsPerSet: str = Field(..., alias="k/s")
-    Errors: str = Field(..., alias="e")
-    Attempts: str = Field(..., alias="ta")
-    Percentage: str = Field(..., alias="pct")
-    Assists: str = Field(..., alias="a")
-    AssistsPerSet: str = Field(..., alias="a/s")
-    ServiceAces: str = Field(..., alias="sa")
-    ServiceAcesPerSet: str = Field(..., alias="sa/s")
-    Receptions: str = Field(..., alias="r")
-    Digs: str = Field(..., alias="digs")
-    DigsPerSet: str = Field(..., alias="d/s")
-    BlockSolo: str = Field(..., alias="bs")
-    BlockAssists: str = Field(..., alias="ba")
-    BlockTotal: str = Field(..., alias="tot")
-    BlocksPerSet: str = Field(..., alias="b/s")
-    Points: str = Field(..., alias="pts")
-    PointsPerSet: str = Field(..., alias="pts/s")
+    Statistics: Dict[str, StatisticsModel]  # Use a dictionary to store the statistics
 
     class Config:
         json_schema_extra = {
@@ -41,27 +26,92 @@ class PlayerSchema(BaseModel):
                 "Name":"John Doe",
                 "Yr":"Jr",
                 "Pos":"S",
-                "m":"15",
-                "s":"25",
-                "k":"10",
-                "k/s":"0.40",
-                "e":"8",
-                "ta":"50",
-                "pct":"0.04",
-                "a":"5",
-                "a/s":"0.20",
-                "sa":"1",
-                "sa/s":"0.04",
-                "r":"9",
-                "re":"3",
-                "digs":"7",
-                "d/s":"0.37",
-                "bs":"0",
-                "ba":"0",
-                "tot":"0",
-                "b/s":"0.00",
-                "pts":"0.0",
-                "pts/s":"0.0"
+                "Statistics": {
+                    "m": {
+                        "currentTotal": 15,
+                        "historical": [15, 14, 16]
+                    },
+                    "s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "k": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "k/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "e": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "ta": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pct": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "a": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "a/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "sa": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "sa/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "r": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "re": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "digs": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "d/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "bs": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "ba": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "tot": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "b/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pts": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pts/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                }
             }
         }
 
@@ -72,26 +122,7 @@ class UpdatePlayerModel(BaseModel):
     Name: Optional[str]
     Yr: Optional[str]
     Pos: Optional[str]
-    Matches: Optional[str]
-    Sets: Optional[str]
-    Kills: Optional[str]
-    KillsPerSet: Optional[str]
-    Errors: Optional[str]
-    Attempts: Optional[str]
-    Percentage: Optional[str]
-    Assists: Optional[str]
-    AssistsPerSet: Optional[str]
-    ServiceAces: Optional[str]
-    ServiceAcesPerSet: Optional[str]
-    Receptions: Optional[str]
-    Digs: Optional[str]
-    DigsPerSet: Optional[str]
-    BlockSolo: Optional[str]
-    BlockAssists: Optional[str]
-    BlockTotal: Optional[str]
-    BlocksPerSet: Optional[str]
-    Points: Optional[str]
-    PointsPerSet: Optional[str]
+    Statistics: Dict[str, StatisticsModel]  # Use a dictionary to store the statistics
 
     class Config:
         json_schema_extra = {
@@ -104,27 +135,92 @@ class UpdatePlayerModel(BaseModel):
                 "Name":"John Doe",
                 "Yr":"Jr",
                 "Pos":"S",
-                "m":"15",
-                "s":"25",
-                "k":"10",
-                "k/s":"0.40",
-                "e":"8",
-                "ta":"50",
-                "pct":"0.04",
-                "a":"5",
-                "a/s":"0.20",
-                "sa":"1",
-                "sa/s":"0.04",
-                "r":"9",
-                "re":"3",
-                "digs":"7",
-                "d/s":"0.37",
-                "bs":"0",
-                "ba":"0",
-                "tot":"0",
-                "b/s":"0.00",
-                "pts":"0.0",
-                "pts/s":"0.0"
+                "Statistics": {
+                    "m": {
+                        "currentTotal": 15,
+                        "historical": [15, 14, 16]
+                    },
+                    "s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "k": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "k/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "e": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "ta": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pct": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "a": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "a/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "sa": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "sa/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "r": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "re": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "digs": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "d/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "bs": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "ba": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "tot": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "b/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pts": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                    "pts/s": {
+                        "currentTotal": 25,
+                        "historical": [25, 24, 26]
+                    },
+                }
             }
         }
 
