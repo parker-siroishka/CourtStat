@@ -5,7 +5,6 @@ from mvb_team_urls import team_urls, team_names
 
 
 def get_team_data(team_url: str):
-	result = []
 	quote_page = team_url
  	# might need this in an .env variable in the future
 	user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML%2C like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.62'

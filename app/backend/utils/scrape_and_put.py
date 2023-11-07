@@ -1,5 +1,5 @@
 
-# Might not need this as scrape_and_update.py accomplishes PUT / UPDATE
+# Might not need this as update_ALL_TEAMS.py accomplishes PUT / UPDATE
 
 # import os
 # from pymongo.mongo_client import MongoClient
