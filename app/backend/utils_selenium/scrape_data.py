@@ -1,3 +1,6 @@
+import time
+from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -23,6 +26,7 @@ href_values = set([element.get_attribute("href") for element in elements])
 # driver.quit()
 
 for href in href_values:
+    outer_start = time.time()
     driver.get(href)
     # Click the anchor tag with the specific text
     # Extract the [TEAM] value from the URL
@@ -36,16 +40,39 @@ for href in href_values:
         By.XPATH, '//a[contains(@href, "/sports/mvball/2023-24/players/")]')
 
     player_hrefs = [player.get_attribute("href") for player in players]
-    print(href)
+    player_hrefs = set(player_hrefs)
 
     for href in player_hrefs:
+        inner_start = time.time()
+        user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML%2C like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.62'
+        request = Request(href, headers={'User-Agent': user_agent})
+        page = urlopen(request)
+        soup = BeautifulSoup(page, 'html.parser')
         player_data = {}
-        driver.get(href)
-        # Find the h1 element by tag name
-        player_name = driver.find_element(By.TAG_NAME, "h1").text
-        td_elements = driver.find_elements(
-            By.XPATH, "//tbody/tr/td[preceding-sibling::td/a]")
-        print(player_name)
-        for td in td_elements:
-            value = td.text.strip()  # Get the text content and remove leading/trailing whitespace
-            print(value)
+        # Find the table by its ordering
+        table = soup.findAll("table")[0]
+        player_name = soup.findAll("h1")[0]
+        player_name = player_name.contents[2].replace(
+            '\n', '').replace('\r', '').replace('\t', '').strip()
+        # Get player name
+        player_data['Player Name'] = player_name
+        # Loop through each row in the table
+        for row in table.find_all("tr"):
+            # Extract the text content of the cells in the row
+            cells = row.find_all("td")
+            if cells:
+                key = cells[0].text.strip()
+                values = [cell.text.strip() for cell in cells[1:]]
+                player_data[key] = {
+                    "Total": values[0],
+                    "Rank": values[1],
+                    "Conference": values[2],
+                    "Conference Rank": values[3],
+                }
+
+        # Print the result
+        print(player_data)
+        inner_stop = time.time()
+        print("Inner time:" + str(inner_stop - inner_start))
+    outer_stop = time.time()
+    print("Outer time:" + str(outer_stop - outer_start))
